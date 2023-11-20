@@ -1,0 +1,317 @@
+1. Print odd numbers in an array
+********************************
+Anonymous Function:
+*******************
+var odd=function(userinput){
+var result=[];
+for(var i=0;i<userinput.length;i++){
+if(Number(userinput[i])%2!=0){
+result.push(userinput[i]);
+}
+}
+return result;
+}
+
+console.log(odd([4,3,7,6,4,456,321,245,22]));
+
+IIFE Function:
+**************
+(function odd(userinput){
+var result=[];
+for(var i=0;i<userinput.length;i++){
+if(Number(userinput[i])%2!=0){
+result.push(userinput[i]);
+}
+}
+console.log(result);
+})([4,3,7,6,4,456,321,245,22]);
+
+Arrow Function:
+***************
+const odd = (userinput) => {
+    const result = [];
+    for (let i = 0; i < userinput.length; i++) {
+        if (Number(userinput[i]) % 2 !== 0) {
+            result.push(userinput[i]);
+        }
+    }
+    return result;
+};
+
+console.log(odd([4, 3, 7, 6, 4, 456, 321, 245, 22]));
+
+2. Convert all the strings to title caps in a string array
+**********************************************************
+Anonymous Function:
+*******************
+var convertToTitleCase = function(inputArray){
+for(var i=0; i<inputArray.length; i++) {
+   inputArray[i]= inputArray[i].charAt(0).toUpperCase() + inputArray[i].slice(1).toLowerCase();
+  }
+
+  return inputArray;
+}
+
+console.log(convertToTitleCase(['apple', 'banana', 'cherry']));
+
+IIFE Function:
+**************
+(function convertToTitleCase(inputArray){
+for(var i=0; i<inputArray.length; i++) {
+   inputArray[i]= inputArray[i].charAt(0).toUpperCase() + inputArray[i].slice(1).toLowerCase();
+  }
+
+  console.log(inputArray);
+})(convertToTitleCase(['apple', 'banana', 'cherry']))
+
+Arrow Function:
+***************
+const convertToTitleCase = (inputArray) => {
+    for (let i = 0; i < inputArray.length; i++) {
+        inputArray[i] = inputArray[i].charAt(0).toUpperCase() + inputArray[i].slice(1).toLowerCase();
+    }
+    return inputArray;
+};
+
+console.log(convertToTitleCase(['apple', 'banana', 'cherry']));
+
+3. Sum of all numbers in an array
+********************************
+Anonymous Function:
+*******************
+var sumarray=function(userinput){
+var result=0;
+for(var i=0;i<userinput.length;i++){
+result =Number(result)+Number(userinput[i]);
+}
+return result;
+}
+
+console.log(sumarray([4,3,7,6,4,456,321,245,22]));
+
+IIFE Function:
+**************
+(function sumarray(userinput){
+var result=0;
+for(var i=0;i<userinput.length;i++){
+result =Number(result)+Number(userinput[i]);
+}
+console.log(result);
+})([4,3,7,6,4,456,321,245,22]);
+
+Arrow Function:
+***************
+const sumArray = (userinput) => {
+    let result = 0;
+    for (let i = 0; i < userinput.length; i++) {
+        result = Number(result) + Number(userinput[i]);
+    }
+    return result;
+};
+
+console.log(sumArray([4, 3, 7, 6, 4, 456, 321, 245, 22]));
+
+4. Return all the prime numbers in an array
+*********************************************
+Anonymous Function:
+*******************
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const primes = numbers.filter(function (num) {
+    if (num < 2) {
+        return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+});
+
+console.log("Prime numbers:", primes);
+
+IIFE Function:
+**************
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const primes = (function(arr) {
+    return arr.filter(function (num) {
+        if (num < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    });
+})(numbers);
+
+console.log("Prime numbers:", primes);
+
+Arrow function:
+***************
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const primes = ((arr) => {
+    return arr.filter((num) => {
+        if (num < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    });
+})(numbers);
+
+console.log("Prime numbers:", primes);
+
+5. Return all the palindromes in an array
+*****************************************
+Anonymous Function:
+*******************
+let array = ["level", "hello", "noon", "world", "radar"];
+
+let palindromes = array.filter(function(word) {
+    // Convert the word to lowercase for case-insensitive comparison
+    let lowercasedWord = word.toLowerCase();
+    
+    // Check if the reversed word is equal to the original word
+    return lowercasedWord === lowercasedWord.split('').reverse().join('');
+});
+console.log("Palindromes in the array:", palindromes);
+
+IIFE Function:
+**************
+let array = ["level", "hello", "noon", "world", "radar"];
+
+let palindromes = (function(arr) {
+    return arr.filter(function(word) {
+        // Convert the word to lowercase for case-insensitive comparison
+        let lowercasedWord = word.toLowerCase();
+
+        // Check if the reversed word is equal to the original word
+        return lowercasedWord === lowercasedWord.split('').reverse().join('');
+    });
+})(array);
+
+console.log("Palindromes in the array:", palindromes);
+
+Arrow function:
+**************
+let array = ["level", "hello", "noon", "world", "radar"];
+
+let palindromes = ((arr) => {
+    return arr.filter(word => {
+        // Convert the word to lowercase for case-insensitive comparison
+        let lowercasedWord = word.toLowerCase();
+
+        // Check if the reversed word is equal to the original word
+        return lowercasedWord === lowercasedWord.split('').reverse().join('');
+    });
+})(array);
+
+console.log("Palindromes in the array:", palindromes);
+
+6. Return median of two sorted arrays of the same size.
+*******************************************************
+Anonymouns Function:
+********************
+function findMedianSortedArrays(nums1, nums2) {
+    const mergedArray = nums1.concat(nums2).sort((a, b) => a - b); // Use a comparison function
+    const length = mergedArray.length;
+
+    if (length % 2 === 0) {
+        const mid1 = mergedArray[length / 2 - 1];
+        const mid2 = mergedArray[length / 2];
+        return (mid1 + mid2) / 2;
+    } else {
+        return mergedArray[Math.floor(length / 2)];
+    }
+}
+
+const nums1 = [1, 3, 2];
+const nums2 = [2, 4, 3];
+const median = findMedianSortedArrays(nums1, nums2);
+console.log(median);
+
+IIFE function:
+***************
+const findMedianSortedArrays = (function() {
+    return function(nums1, nums2) {
+        const mergedArray = nums1.concat(nums2).sort((a, b) => a - b);
+        const length = mergedArray.length;
+
+        if (length % 2 === 0) {
+            const mid1 = mergedArray[length / 2 - 1];
+            const mid2 = mergedArray[length / 2];
+            return (mid1 + mid2) / 2;
+        } else {
+            return mergedArray[Math.floor(length / 2)];
+        }
+    };
+})();
+
+const nums1 = [1, 3, 2];
+const nums2 = [2, 4, 3];
+const median = findMedianSortedArrays(nums1, nums2);
+console.log(median);
+
+7. Remove duplicates from an array
+**********************************
+Anonymouns Function:
+********************
+let array = [1, 2, 3, 4, 4, 5, 6, 6];
+
+let uniqueArray = array.filter(function(value, index, self) {
+    return self.indexOf(value) === index;
+});
+
+console.log(uniqueArray);
+
+IIFE function:
+**************
+let array = [1, 2, 3, 4, 4, 5, 6, 6];
+
+let uniqueArray = (function(arr) {
+    return arr.filter(function(value, index, self) {
+        return self.indexOf(value) === index;
+    });
+})(array);
+
+console.log(uniqueArray);
+
+8. Rotate an array by k times
+******************************
+Anonymous Function:
+*******************
+const rotateArray1 = function(nums, k) {
+
+  for (let i = 0; i < k; i++) {
+      nums.unshift(nums.pop());
+  }
+
+  return nums;
+}
+
+console.log(rotateArray1([5,4,3,1,7],3))
+
+IIFE Function:
+**************
+const rotateArray1 = (function() {
+    return function(nums, k) {
+        for (let i = 0; i < k; i++) {
+            // Remove the last element from the array and add it to the beginning
+            nums.unshift(nums.pop());
+        }
+
+        return nums;
+    };
+})();
+
+console.log(rotateArray1([5, 4, 3, 1, 7], 3));
